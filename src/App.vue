@@ -1,11 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+	import WsButton from './components/Button/Button.vue';
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+	<h1>PlayGround 😽</h1>
+	<div class = "playground">
+		<WsButton type="primary" disabled  plain >
+			aa
+		</WsButton>
+	</div>
+
+
 </template>
 
-<style scoped></style>
+<style scoped>
+	.playground{
+    	padding: 2%;
+    	border-radius: 15px; width: 90%; height: 400px;
+    	background: linear-gradient(to right, #bfdfe2, #9decc6);
+	}
+
+</style>
+
+
+

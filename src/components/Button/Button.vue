@@ -1,26 +1,38 @@
 <!-- Button @wisperUI - Nanyian2025 -->
 <template>
-    <button class='wr-button'
+    <button class='ws-button'
         :class = "{
-            [`wr-button--${type}`]: type,
-            [`wr-button--${size}`]: size,
+            [`ws-button--${type}`]: type,
+            [`ws-button--${size}`]: size,
             'is-plain': plain,
             'is-round': round,
-            'disable': disabled,
+            'is-cirle': cirle,
+            'is-disabled': disabled,
         }"
         :disabled="disabled"
+        :autofocus="autofocus"
+        :type="nativetype"
     >
         <span><slot/></span>
     </button>
 </template>
 
-
 <script lang ='ts' setup>
-    // import { ref } from 'vue'
+    
     import type { ButtonProps } from './type';
 
-    defineProps<ButtonProps>();    /// 属性接口
-    
+    withDefaults(  //// 设置默认属性
+        defineProps<ButtonProps>(),    /// 属性接口
+        {
+            nativetype: 'button',
+        }
+    )
+
+    // @vue 3.3
+    defineOptions({
+        name: "WsButton",
+
+    })
 </script>
 
 <style scoped>
