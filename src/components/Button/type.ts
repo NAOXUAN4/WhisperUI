@@ -18,3 +18,8 @@ export interface ButtonProps{
     nativetype?: ButtonNativeType,
     autofocus?: boolean
 }
+
+/// 组件的ref声明类型
+export interface ButtonInstance{
+    ref: HTMLButtonElement
+}
