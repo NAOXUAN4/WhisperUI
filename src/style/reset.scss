@@ -1,0 +1,211 @@
+// WhisperUI Reset CSS
+// 基于现代CSS重置理念，结合WhisperUI设计规范
+
+// 1. 使用border-box模型作为默认设置
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// 2. 重置默认的body样式
+body {
+    margin: 0;
+    font-family: var(--ws-font-sans);
+    line-height: 1.5;
+    color: var(--ws-gray-700);
+    background-color: var(--ws-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// 3. 重置常用HTML元素的默认样式
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: inherit;
+    line-height: 1.2;
+    color: var(--ws-gray-900);
+}
+
+h1 {
+    font-size: 2.5rem; // 40px
+}
+
+h2 {
+    font-size: 2rem; // 32px
+}
+
+h3 {
+    font-size: 1.75rem; // 28px
+}
+
+h4 {
+    font-size: 1.5rem; // 24px
+}
+
+h5 {
+    font-size: 1.25rem; // 20px
+}
+
+h6 {
+    font-size: 1.125rem; // 18px
+}
+
+p {
+    margin: 0;
+}
+
+// 4. 重置列表样式
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// 5. 重置链接样式
+a {
+    color: var(--ws-primary-400);
+    text-decoration: none;
+    
+    &:hover {
+        color: var(--ws-primary-500);
+    }
+    
+    &:focus {
+        outline: 2px solid var(--ws-primary-300);
+        outline-offset: 2px;
+    }
+}
+
+// 6. 重置图片样式
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+// 7. 重置表单元素样式
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+}
+
+// 8. 重置按钮样式
+button {
+    cursor: pointer;
+    background: transparent;
+    border: var(--ws-border-width) solid var(--ws-border-color);
+    border-radius: var(--ws-border-radius-base);
+    transition: all var(--ws-transition-duration-base) var(--ws-transition-timing-function);
+    
+    &:disabled {
+        cursor: var(--ws-disabled-cursor);
+        opacity: var(--ws-disabled-opacity);
+    }
+}
+
+// 9. 重置输入框样式
+input, textarea {
+    border: var(--ws-border-width) solid var(--ws-border-color);
+    border-radius: var(--ws-border-radius-base);
+    padding: 0.5rem 0.75rem;
+    transition: all var(--ws-transition-duration-base) var(--ws-transition-timing-function);
+    
+    &:focus {
+        outline: none;
+        border-color: var(--ws-primary-300);
+        box-shadow: var(--ws-shadow-sm);
+    }
+    
+    &:disabled {
+        cursor: var(--ws-disabled-cursor);
+        opacity: var(--ws-disabled-opacity);
+        background-color: var(--ws-gray-100);
+    }
+}
+
+// 10. 重置表格样式
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: var(--ws-border-width) solid var(--ws-gray-200);
+}
+
+// 11. 重置代码块样式
+code, pre {
+    font-family: var(--ws-font-mono);
+    font-size: 0.875em;
+}
+
+// 12. 重置引用样式
+blockquote {
+    margin: 0;
+    padding: 0 1rem;
+    border-left: 4px solid var(--ws-gray-300);
+    color: var(--ws-gray-600);
+}
+
+// 13. 重置hr样式
+hr {
+    border: 0;
+    border-top: var(--ws-border-width) solid var(--ws-gray-200);
+    margin: 1rem 0;
+}
+
+// 14. 禁用状态样式
+[disabled] {
+    cursor: var(--ws-disabled-cursor);
+    opacity: var(--ws-disabled-opacity);
+}
+
+// 15. 重置fieldset样式
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+// 16. 重置legend样式
+legend {
+    padding: 0;
+}
+
+// 17. 设置默认光标和选中样式
+::selection {
+    background-color: var(--ws-primary-100);
+    color: var(--ws-gray-900);
+}
+
+// 18. 滚动条样式（Webkit浏览器）
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--ws-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--ws-gray-300);
+    border-radius: var(--ws-border-radius-full);
+    
+    &:hover {
+        background-color: var(--ws-gray-400);
+    }
+}

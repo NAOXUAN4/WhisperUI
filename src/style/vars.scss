@@ -1,5 +1,5 @@
 :root{
-  // 主色 (Primary)
+    // 主色 (Primary)
     --ws-primary-50: #f0fdfa;
     --ws-primary-100: #ccf7ee;
     --ws-primary-200: #99ede1;
@@ -59,4 +59,39 @@
     --ws-gray-800: #424242;
     --ws-gray-900: #212121;
     --ws-white: #ffffff;
+
+    // 字体家族 (Font Family)
+    --ws-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --ws-font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --ws-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    // 边框 (Border)
+    --ws-border-radius-sm: 0.125rem;     // 2px
+    --ws-border-radius-base: 0.25rem;    // 4px
+    --ws-border-radius-md: 0.375rem;     // 6px
+    --ws-border-radius-lg: 0.5rem;         // 8px
+    --ws-border-radius-xl: 0.75rem;        // 12px
+    --ws-border-radius-2xl: 1rem;            // 16px
+    --ws-border-radius-full: 9999px;
+    
+    --ws-border-width: 1px;
+    --ws-border-color: var(--ws-gray-200);
+    
+    // 禁用状态 (Disabled State)
+    --ws-disabled-opacity: 0.5;
+    --ws-disabled-cursor: not-allowed;
+    
+    // 阴影 (Shadow)
+    --ws-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --ws-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --ws-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --ws-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --ws-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --ws-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+    
+    // 过渡动画 (Transition)
+    --ws-transition-duration-fast: 150ms;
+    --ws-transition-duration-base: 200ms;
+    --ws-transition-duration-slow: 300ms;
+    --ws-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }

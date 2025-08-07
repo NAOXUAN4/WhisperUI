@@ -1,0 +1,299 @@
+.ws-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    border: var(--ws-border-width) solid var(--ws-border-color);
+    border-radius: var(--ws-border-radius-base);
+    transition: all var(--ws-transition-duration-base) var(--ws-transition-timing-function);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--ws-white);
+    color: var(--ws-gray-700);
+    box-sizing: border-box;
+
+    &:hover {
+        border-color: var(--ws-gray-300);
+        background-color: var(--ws-gray-50);
+    }
+
+    &:active {
+        border-color: var(--ws-gray-400);
+        background-color: var(--ws-gray-100);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--ws-primary-100);
+    }
+
+    &.is-disabled {
+        cursor: var(--ws-disabled-cursor);
+        opacity: var(--ws-disabled-opacity);
+
+        &:hover,
+        &:active {
+            border-color: var(--ws-border-color);
+            background-color: var(--ws-white);
+        }
+    }
+
+    // 不同类型按钮样式
+    &--primary {
+        background-color: var(--ws-primary-500);
+        border-color: var(--ws-primary-500);
+        color: var(--ws-white);
+
+        &:hover {
+            background-color: var(--ws-primary-400);
+            border-color: var(--ws-primary-400);
+        }
+
+        &:active {
+            background-color: var(--ws-primary-600);
+            border-color: var(--ws-primary-600);
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 2px var(--ws-primary-100);
+        }
+
+        &.is-plain {
+            background-color: var(--ws-white);
+            border-color: var(--ws-primary-300);
+            color: var(--ws-primary-500);
+
+            &:hover {
+                background-color: var(--ws-primary-50);
+                border-color: var(--ws-primary-400);
+            }
+
+            &:active {
+                background-color: var(--ws-primary-100);
+                border-color: var(--ws-primary-500);
+            }
+        }
+
+        &.is-disabled {
+            &.is-plain {
+                background-color: var(--ws-white);
+                border-color: var(--ws-primary-200);
+                color: var(--ws-primary-300);
+            }
+        }
+    }
+
+    &--success {
+        background-color: var(--ws-success-500);
+        border-color: var(--ws-success-500);
+        color: var(--ws-white);
+
+        &:hover {
+            background-color: var(--ws-success-300);
+            border-color: var(--ws-success-300);
+        }
+
+        &:active {
+            background-color: var(--ws-success-700);
+            border-color: var(--ws-success-700);
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 2px var(--ws-success-100);
+        }
+
+        &.is-plain {
+            background-color: var(--ws-white);
+            border-color: var(--ws-success-300);
+            color: var(--ws-success-500);
+
+            &:hover {
+                background-color: var(--ws-success-50);
+                border-color: var(--ws-success-300);
+            }
+
+            &:active {
+                background-color: var(--ws-success-100);
+                border-color: var(--ws-success-500);
+            }
+        }
+
+        &.is-disabled {
+            &.is-plain {
+                background-color: var(--ws-white);
+                border-color: var(--ws-success-100);
+                color: var(--ws-success-300);
+            }
+        }
+    }
+
+    &--warning {
+        background-color: var(--ws-warning-500);
+        border-color: var(--ws-warning-500);
+        color: var(--ws-white);
+
+        &:hover {
+            background-color: var(--ws-warning-300);
+            border-color: var(--ws-warning-300);
+        }
+
+        &:active {
+            background-color: var(--ws-warning-700);
+            border-color: var(--ws-warning-700);
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 2px var(--ws-warning-100);
+        }
+
+        &.is-plain {
+            background-color: var(--ws-white);
+            border-color: var(--ws-warning-300);
+            color: var(--ws-warning-500);
+
+            &:hover {
+                background-color: var(--ws-warning-50);
+                border-color: var(--ws-warning-300);
+            }
+
+            &:active {
+                background-color: var(--ws-warning-100);
+                border-color: var(--ws-warning-500);
+            }
+        }
+
+        &.is-disabled {
+            &.is-plain {
+                background-color: var(--ws-white);
+                border-color: var(--ws-warning-100);
+                color: var(--ws-warning-300);
+            }
+        }
+    }
+
+    &--error {
+        background-color: var(--ws-error-500);
+        border-color: var(--ws-error-500);
+        color: var(--ws-white);
+
+        &:hover {
+            background-color: var(--ws-error-300);
+            border-color: var(--ws-error-300);
+        }
+
+        &:active {
+            background-color: var(--ws-error-700);
+            border-color: var(--ws-error-700);
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 2px var(--ws-error-100);
+        }
+
+        &.is-plain {
+            background-color: var(--ws-white);
+            border-color: var(--ws-error-300);
+            color: var(--ws-error-500);
+
+            &:hover {
+                background-color: var(--ws-error-50);
+                border-color: var(--ws-error-300);
+            }
+
+            &:active {
+                background-color: var(--ws-error-100);
+                border-color: var(--ws-error-500);
+            }
+        }
+
+        &.is-disabled {
+            &.is-plain {
+                background-color: var(--ws-white);
+                border-color: var(--ws-error-100);
+                color: var(--ws-error-300);
+            }
+        }
+    }
+
+    &--info {
+        background-color: var(--ws-info-500);
+        border-color: var(--ws-info-500);
+        color: var(--ws-white);
+
+        &:hover {
+            background-color: var(--ws-info-300);
+            border-color: var(--ws-info-300);
+        }
+
+        &:active {
+            background-color: var(--ws-info-700);
+            border-color: var(--ws-info-700);
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 2px var(--ws-info-100);
+        }
+
+        &.is-plain {
+            background-color: var(--ws-white);
+            border-color: var(--ws-info-300);
+            color: var(--ws-info-500);
+
+            &:hover {
+                background-color: var(--ws-info-50);
+                border-color: var(--ws-info-300);
+            }
+
+            &:active {
+                background-color: var(--ws-info-100);
+                border-color: var(--ws-info-500);
+            }
+        }
+
+        &.is-disabled {
+            &.is-plain {
+                background-color: var(--ws-white);
+                border-color: var(--ws-info-100);
+                color: var(--ws-info-300);
+            }
+        }
+    }
+
+    // 不同尺寸按钮样式
+    &--small {
+        font-size: 0.875rem;
+        padding: 0.25rem 0.75rem;
+    }
+
+    &--large {
+        font-size: 1.125rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    // 特殊样式
+    &.is-round {
+        border-radius: var(--ws-border-radius-full);
+    }
+
+    &.is-cirle {
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0;
+    }
+
+    // 禁用状态
+    &.is-disabled {
+        cursor: var(--ws-disabled-cursor);
+        opacity: var(--ws-disabled-opacity);
+
+        &:hover,
+        &:active {
+            border-color: var(--ws-border-color);
+            background-color: var(--ws-white);
+        }
+    }
+}

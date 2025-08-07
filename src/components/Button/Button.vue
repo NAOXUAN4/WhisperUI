@@ -44,8 +44,6 @@
 
 
 <style scoped>
-    .ws-button{
-		background-color: var(--ws-bg-color);
-	}
+    @import './style.scss';
 
 </style>
