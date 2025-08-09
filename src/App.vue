@@ -6,7 +6,7 @@
 		<h2>Part.1 Button</h2>
 		<div class="pg-container">
 			<div style="display: flex; flex-direction: row; margin-top: 5px;">
-				<div v-for="item in <ButtonType[]>['primary', 'error', 'warning', 'success', 'info']" style="margin: 2px;">
+				<div v-for="item in <ButtonType[]>['primary', 'error', 'warning', 'success', 'info']" style="margin: 2px;" :key="item">
 					<WsButton :type=item>
 						{{ item }}
 					</WsButton>
@@ -14,7 +14,7 @@
 			</div>
 
 			<div style="display: flex; flex-direction: row; margin-top: 5px;">
-				<div v-for="item in <ButtonType[]>['primary', 'error', 'warning', 'success', 'info']" style="margin: 2px;">
+				<div v-for="item in <ButtonType[]>['primary', 'error', 'warning', 'success', 'info']" style="margin: 2px;" :key="item">
 					<WsButton :type=item plain>
 						{{ item }}
 					</WsButton>
@@ -22,7 +22,7 @@
 			</div>
 
 			<div style="display: flex; flex-direction: row; margin-top: 5px;">
-				<div v-for="item in <ButtonType[]>['primary', 'error', 'warning', 'success', 'info']" style="margin: 2px;">
+				<div v-for="item in <ButtonType[]>['primary', 'error', 'warning', 'success', 'info']" style="margin: 2px;" :key="item">
 					<WsButton :type=item disabled>
 						{{ item }}
 					</WsButton>
@@ -32,12 +32,8 @@
 		<hr>
 		<h2>Part.2 Collapse</h2>
 		<div class="pg-container">
-			<WsCollapse accordion v-model="startCollpase.list">
-				<WsCollapseItem name="1">
-					<template #title>
-						<h2 style="cursor: alias;">aaa</h2>
-					</template>
-
+			<WsCollapse  v-model="startCollpase.list" style="width:30%; font-family: 'Times New Roman', Times, serif;">
+				<WsCollapseItem name="1" title="Item-1">
 					<template #content>
 						<ul>
 							<li>1</li>
@@ -49,10 +45,7 @@
 					</template>
 				</WsCollapseItem>
 
-				<WsCollapseItem name="4">
-					<template #title>
-						<h3>title</h3>
-					</template>
+				<WsCollapseItem name="4" title="Item-2">
 
 					<template #content>
 						<ul>
@@ -67,14 +60,16 @@
 
 				<WsCollapseItem name="2">
 					<template #title>
-						<h3>title</h3>
+						<h3>Item-3</h3>
 					</template>
 
 					<template #content>
+            <h4>LineTitle</h4>
+            <p>slot List 1</p>
 						<ul>
-							<li>1</li>
-							<li>2</li>
-							<li>3</li>
+							<p>slot List 1</p>
+							<li>你好！</li>
+							<li>nihaoma！</li>
 							<li>4</li>
 
 						</ul>
@@ -83,7 +78,7 @@
 
 				<WsCollapseItem name="3">
 					<template #title>
-						<h3>title</h3>
+						<h3>Item-4</h3>
 					</template>
 
 					<template #content>
@@ -115,39 +110,27 @@
 	onMounted(()=>{
 		console.log(ButtonDom.value?.ref);
 
-		setTimeout(()=>{
-			startCollpase.list = ['4'];
-			console.log(startCollpase.list);
-			
-		},1000)
-	})
+		// setTimeout(()=>{
+		// 	startCollpase.list = ['4'];
+		// 	console.log(startCollpase.list);
+
+		// },1000);
+	});
 
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <style scoped>
 	.playground{
-    	padding: 2%;
-    	border-radius: 15px; width: 90%; height: 800px;
-    	background: linear-gradient(to right, #d9e8ea, #bdd9c9);
+    padding: 2%;
+    border-radius: 15px; width: 90%; height: 800px;
+    background: linear-gradient(to right, #ffffff , #5255ba 30%, #ffffff 70%);
 		display: flex;
 		flex-direction: column;
 
-		h2{
-			color: rgb(136, 171, 202);
+		h2,h3 {
+			color: rgb(0, 0, 0);
+      font-family: 'Times New Roman', Times, serif;
 		}
 
 		.pg-container{
@@ -155,7 +138,7 @@
 			/* color: aliceblue; */
 		}
 	}
-	
+
 
 </style>
 

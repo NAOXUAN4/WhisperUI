@@ -1,9 +1,9 @@
-import Collapse from "./Collapse.vue";
+
 import type { Ref, InjectionKey } from 'vue';
 
 export type CollapseItemNameType = string | null;
 
-/// item名称, 标题, 
+/// item名称, 标题,
 /// 内容用 slot
 export interface CollapseItemProps{
     name: CollapseItemNameType,
@@ -35,7 +35,7 @@ export interface CollapseProviderType{
     handleItemClick: (item: CollapseItemNameType) => void;
 }
 
-/// 创建一个透传的全局Key type: 
-export const CollapseProviderKey = Symbol('collapseItemProvider') as InjectionKey<CollapseProviderType>; 
+/// 创建一个透传的全局Key type:
+export const CollapseProviderKey = Symbol('collapseItemProvider') as InjectionKey<CollapseProviderType>;
 
 

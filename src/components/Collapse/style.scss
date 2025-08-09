@@ -1,0 +1,75 @@
+.ws-collapse {
+    border: var(--ws-border-width) solid var(--ws-border-color);
+    border-radius: var(--ws-border-radius-lg);
+    overflow: hidden;
+}
+
+.ws-collapse-item {
+    border-bottom: var(--ws-border-width) solid var(--ws-border-color);
+    position: relative;
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &.is-disabled {
+        opacity: var(--ws-disabled-opacity);
+        cursor: var(--ws-disabled-cursor);
+        pointer-events: none;
+    }
+}
+
+.ws-collapse__header {
+    padding: var(--ws-border-radius-xl) var(--ws-border-radius-xl);
+    background-color: var(--ws-white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ws-gray-900);
+    transition: background-color var(--ws-transition-duration-base) var(--ws-transition-timing-function);
+    z-index: 1;
+
+    &:hover {
+        background-color: var(--ws-primary-50);
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: transform var(--ws-transition-duration-base) var(--ws-transition-timing-function);
+    }
+}
+
+
+.ws-collapse-item.is-active {
+    .ws-collapse__header {
+        &::after {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.slide-enter-active,.slide-leave-active {
+  transition: height .3s ease-in-out;
+}
+
+.ws-collapse__content {
+    padding: var(--ws-border-radius-xl) var(--ws-border-radius-2xl);
+    background-color: var(--ws-white);
+    color: var(--ws-gray-700);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    z-index: 0;
+
+    &:hover{
+      background-color: var(--ws-primary-50);
+    }
+}

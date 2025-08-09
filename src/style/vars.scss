@@ -1,63 +1,73 @@
 :root{
     // 主色 (Primary)
-    --ws-primary-50: #f0fdfa;
-    --ws-primary-100: #ccf7ee;
-    --ws-primary-200: #99ede1;
-    --ws-primary-300: #66e3d4;
-    --ws-primary-400: #3bbba6;
-    --ws-primary-500: #2e9a87;
-    --ws-primary-600: #237768;
-    --ws-primary-700: #185549;
-    --ws-primary-800: #0d332a;
-    --ws-primary-900: #041a15;
+    --ws-primary-500: #47867b;
+    --ws-primary-50: color-mix(in srgb, var(--ws-primary-500), white 90%);
+    --ws-primary-100: color-mix(in srgb, var(--ws-primary-500), white 75%);
+    --ws-primary-200: color-mix(in srgb, var(--ws-primary-500), white 60%);
+    --ws-primary-300: color-mix(in srgb, var(--ws-primary-500), white 45%);
+    --ws-primary-400: color-mix(in srgb, var(--ws-primary-500), white 25%);
+    --ws-primary-600: color-mix(in srgb, var(--ws-primary-500), black 15%);
+    --ws-primary-700: color-mix(in srgb, var(--ws-primary-500), black 30%);
+    --ws-primary-800: color-mix(in srgb, var(--ws-primary-500), black 45%);
+    --ws-primary-900: color-mix(in srgb, var(--ws-primary-500), black 60%);
 
     // 警告色 (Warning)
-    --ws-warning-50: #fffbeb;
-    --ws-warning-100: #fef3c7;
-    --ws-warning-300: #fcd34d;
-    --ws-warning-500: #f59e0b;
-    --ws-warning-700: #b45309;
+    --ws-warning-500: #ccc15e;
+    --ws-warning-50: color-mix(in srgb, var(--ws-warning-500), white 90%);
+    --ws-warning-100: color-mix(in srgb, var(--ws-warning-500), white 75%);
+    --ws-warning-300: color-mix(in srgb, var(--ws-warning-500), white 50%);
+    --ws-warning-700: color-mix(in srgb, var(--ws-warning-500), black 20%);
+    --ws-warning-800: color-mix(in srgb, var(--ws-warning-500), black 35%);
+    --ws-warning-900: color-mix(in srgb, var(--ws-warning-500), black 50%);
 
     // 错误色 (Error)
-    --ws-error-50: #fef2f2;
-    --ws-error-100: #fee2e2;
-    --ws-error-300: #fca5a5;
-    --ws-error-500: #ef4444;
-    --ws-error-700: #b91c1c;
+    --ws-error-500: #c15c5c;
+    --ws-error-50: color-mix(in srgb, var(--ws-error-500), white 90%);
+    --ws-error-100: color-mix(in srgb, var(--ws-error-500), white 75%);
+    --ws-error-300: color-mix(in srgb, var(--ws-error-500), white 50%);
+    --ws-error-700: color-mix(in srgb, var(--ws-error-500), black 20%);
+    --ws-error-800: color-mix(in srgb, var(--ws-error-500), black 35%);
+    --ws-error-900: color-mix(in srgb, var(--ws-error-500), black 50%);
 
     // 信息色 (Info)
-    --ws-info-50: #eff6ff;
-    --ws-info-100: #dbeafe;
-    --ws-info-300: #93c5fd;
-    --ws-info-500: #3b82f6;
-    --ws-info-700: #1d4ed8;
+    --ws-info-500: #7290c9;
+    --ws-info-50: color-mix(in srgb, var(--ws-info-500), white 90%);
+    --ws-info-100: color-mix(in srgb, var(--ws-info-500), white 75%);
+    --ws-info-300: color-mix(in srgb, var(--ws-info-500), white 50%);
+    --ws-info-700: color-mix(in srgb, var(--ws-info-500), black 20%);
+    --ws-info-800: color-mix(in srgb, var(--ws-info-500), black 35%);
+    --ws-info-900: color-mix(in srgb, var(--ws-info-500), black 50%);
 
     // 成功色 (Success)
-    --ws-success-50: #f0fdf4;
-    --ws-success-100: #dcfce7;
-    --ws-success-300: #86efac;
-    --ws-success-500: #22c55e;
-    --ws-success-700: #15803d;
+    --ws-success-500: #68ae80;
+    --ws-success-50: color-mix(in srgb, var(--ws-success-500), white 90%);
+    --ws-success-100: color-mix(in srgb, var(--ws-success-500), white 75%);
+    --ws-success-300: color-mix(in srgb, var(--ws-success-500), white 50%);
+    --ws-success-700: color-mix(in srgb, var(--ws-success-500), black 20%);
+    --ws-success-800: color-mix(in srgb, var(--ws-success-500), black 35%);
+    --ws-success-900: color-mix(in srgb, var(--ws-success-500), black 50%);
 
     // 加载色 (Loading)
-    --ws-loading-50: #f9fafb;
-    --ws-loading-100: #f3f4f6;
-    --ws-loading-300: #d1d5db;
-    --ws-loading-500: #9ca3af;
-    --ws-loading-700: #4b5563;
+    --ws-loading-500: #a1adb3;
+    --ws-loading-50: color-mix(in srgb, var(--ws-loading-500), white 90%);
+    --ws-loading-100: color-mix(in srgb, var(--ws-loading-500), white 80%);
+    --ws-loading-300: color-mix(in srgb, var(--ws-loading-500), white 60%);
+    --ws-loading-700: color-mix(in srgb, var(--ws-loading-500), black 25%);
+    --ws-loading-800: color-mix(in srgb, var(--ws-loading-500), black 40%);
+    --ws-loading-900: color-mix(in srgb, var(--ws-loading-500), black 55%);
 
     // 中性色 (Neutral)
     --ws-black: #000000;
-    --ws-gray-50: #fafafa;
-    --ws-gray-100: #f5f5f5;
-    --ws-gray-200: #eeeeee;
-    --ws-gray-300: #e0e0e0;
-    --ws-gray-400: #bdbdbd;
-    --ws-gray-500: #9e9e9e;
-    --ws-gray-600: #757575;
-    --ws-gray-700: #616161;
-    --ws-gray-800: #424242;
-    --ws-gray-900: #212121;
+    --ws-gray-50: #e9ebeb;
+    --ws-gray-100: #dddedf;
+    --ws-gray-200: #cfd0d1;
+    --ws-gray-300: #bbbcbe;
+    --ws-gray-400: #a2a4a5;
+    --ws-gray-500: #878a8c;
+    --ws-gray-600: #6c7071;
+    --ws-gray-700: #535556;
+    --ws-gray-800: #3b3d3e;
+    --ws-gray-900: #242526;
     --ws-white: #ffffff;
 
     // 字体家族 (Font Family)
@@ -73,14 +83,14 @@
     --ws-border-radius-xl: 0.75rem;        // 12px
     --ws-border-radius-2xl: 1rem;            // 16px
     --ws-border-radius-full: 9999px;
-    
+
     --ws-border-width: 1px;
     --ws-border-color: var(--ws-gray-200);
-    
+
     // 禁用状态 (Disabled State)
     --ws-disabled-opacity: 0.5;
     --ws-disabled-cursor: not-allowed;
-    
+
     // 阴影 (Shadow)
     --ws-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --ws-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
@@ -88,7 +98,7 @@
     --ws-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
     --ws-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     --ws-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-    
+
     // 过渡动画 (Transition)
     --ws-transition-duration-fast: 150ms;
     --ws-transition-duration-base: 200ms;
