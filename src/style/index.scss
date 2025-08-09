@@ -1,3 +1,6 @@
 
 @forward './vars.scss';
 @forward './reset.scss';
+
+@forward '../components/Button/style.scss';
+@forward '../components/Collapse/style.scss';
