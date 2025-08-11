@@ -4,7 +4,27 @@
 	<!-- <h1>PlayGround 😽</h1> -->
 	<div class = "playground">
 		<h2>Part.1 Button</h2>
+
 		<div class="pg-container">
+
+      <div style="display: flex; flex-direction: row; margin-top: 5px; gap: 4px;">
+					<WsButton>
+						default
+					</WsButton>
+          <WsButton plain>
+						plain
+					</WsButton>
+          <WsButton icon="fa-lemon fa-regular">
+						icon button
+					</WsButton>
+          <WsButton circle>
+						circle
+					</WsButton>
+          <WsButton round>
+						round
+					</WsButton>
+			</div>
+
 			<div style="display: flex; flex-direction: row; margin-top: 5px;">
 				<div v-for="item in <ButtonType[]>['primary', 'error', 'warning', 'success', 'info']" style="margin: 2px;" :key="item">
 					<WsButton :type=item>
@@ -120,11 +140,6 @@
         <WsIcon icon="fa-lemon fa-solid" size="2x" color="#f3f421"/>
         <WsIcon icon="fa-lemon fa-regular" size="3x"/>
       </div>
-
-
-
-
-
     </div>
 
 	</div>
@@ -155,7 +170,7 @@
 	.playground{
     padding: 2%;
     border-radius: 15px; width: 90%; height: 1800px;
-    background: linear-gradient(to right, #ffffff , #5255ba 30%, #ffffff 70%);
+    background: linear-gradient(to right, #dedfe3 60%, #47867b 30%, #ffffff);
 		display: flex;
 		flex-direction: column;
 

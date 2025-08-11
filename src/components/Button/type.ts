@@ -12,7 +12,8 @@ export interface ButtonProps{
     plain?: boolean,
     disabled?: boolean,
     round?: boolean,
-    cirle?: boolean
+    circle?: boolean,
+    icon?: string  /// 支持添加icon组件
 
     ///保持原生支持
     nativetype?: ButtonNativeType,

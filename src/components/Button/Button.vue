@@ -7,13 +7,17 @@
             [`ws-button--${size}`]: size,
             'is-plain': plain,
             'is-round': round,
-            'is-cirle': cirle,
+            'is-circle': circle,
             'is-disabled': disabled,
+            'icon': icon
         }"
         :disabled="disabled"
         :autofocus="autofocus"
         :type="nativetype"
     >
+        <span v-if="icon">
+          <WsIcon :icon="icon" />
+        </span>
         <span><slot/></span>
     </button>
 </template>
@@ -21,6 +25,7 @@
 <script lang ='ts' setup>
     import { ref } from 'vue';
     import type { ButtonProps } from './type';
+    import WsIcon from '@/components/Icon/Icon.vue';
 
     withDefaults(  //// 设置默认属性
         defineProps<ButtonProps>(),    /// 属性接口
