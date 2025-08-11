@@ -34,31 +34,21 @@
     &:hover {
         background-color: var(--ws-primary-50);
     }
+}
 
-    &::after {
-        content: "";
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        transition: transform var(--ws-transition-duration-base) var(--ws-transition-timing-function);
-    }
+.ws-collapse__icon {
+  transition: transform var(--ws-transition-duration-base) var(--ws-transition-timing-function);
 }
 
 
 .ws-collapse-item.is-active {
-    .ws-collapse__header {
-        &::after {
-            transform: rotate(180deg);
-        }
+    .ws-collapse__icon {
+      transform: rotate(180deg);
     }
 }
 
 .slide-enter-active,.slide-leave-active {
-  transition: height .3s ease-in-out;
+  transition: height var(--ws-transition-duration-base) ease-in-out;
 }
 
 .ws-collapse__content {

@@ -1,0 +1,33 @@
+.ws-icon {
+  --ws-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--ws-icon-color);
+  font-size: inherit;
+
+  &--primary{
+    color: var(--ws-primary-500);
+  }
+
+  &--warning{
+    color: var(--ws-warning-500);
+  }
+
+  &--success{
+    color: var(--ws-success-500);
+  }
+
+  &--error{
+    color: var(--ws-error-500);
+  }
+
+  &--info{
+    color: var(--ws-info-500);
+  }
+
+
+
+}

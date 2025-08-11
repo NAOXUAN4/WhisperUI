@@ -94,6 +94,39 @@
 
 			</WsCollapse>
 		</div>
+
+    <hr>
+    <h2>part.3 Icons</h2>
+    <div class="pg-container">
+      <div>
+        <p>regular</p>
+        <WsIcon icon="fa-lemon fa-regular" size="2x"/>
+        <WsIcon icon="fa-lemon fa-regular" type="primary" size="2x"/>
+        <WsIcon icon="fa-lemon fa-regular" type="error" size="2x"/>
+        <WsIcon icon="fa-lemon fa-regular" type="warning" size="2x"/>
+        <WsIcon icon="fa-lemon fa-regular" type="info" size="2x"/>
+      </div>
+      <div>
+        <p>solid</p>
+        <WsIcon icon="fa-lemon fa-solid" size="2x"/>
+        <WsIcon icon="fa-lemon fa-solid" type="primary" size="2x"/>
+        <WsIcon icon="fa-lemon fa-solid" type="error" size="2x"/>
+        <WsIcon icon="fa-lemon fa-solid" type="warning" size="2x"/>
+        <WsIcon icon="fa-lemon fa-solid" type="info" size="2x"/>
+      </div>
+
+      <div>
+        <p>Custom</p>
+        <WsIcon icon="fa-lemon fa-solid" size="2x" color="#f3f421"/>
+        <WsIcon icon="fa-lemon fa-regular" size="3x"/>
+      </div>
+
+
+
+
+
+    </div>
+
 	</div>
 </template>
 
@@ -103,18 +136,16 @@
 	import WsButton from './components/Button/Button.vue';
 	import WsCollapse from './components/Collapse/Collapse.vue';
 	import WsCollapseItem from './components/Collapse/CollapseItem.vue';
+  import WsIcon from './components/Icon/Icon.vue';
 	import type { ButtonInstance, ButtonType } from './components/Button/type';
 	const ButtonDom = ref<ButtonInstance>();
-	const startCollpase = reactive({list:['1','2','3']});
+	const startCollpase = reactive({list:['2']});
 
 	onMounted(()=>{
 		console.log(ButtonDom.value?.ref);
+    setTimeout(()=>{
 
-		// setTimeout(()=>{
-		// 	startCollpase.list = ['4'];
-		// 	console.log(startCollpase.list);
-
-		// },1000);
+    },1000);
 	});
 
 </script>
@@ -123,7 +154,7 @@
 <style scoped>
 	.playground{
     padding: 2%;
-    border-radius: 15px; width: 90%; height: 800px;
+    border-radius: 15px; width: 90%; height: 1800px;
     background: linear-gradient(to right, #ffffff , #5255ba 30%, #ffffff 70%);
 		display: flex;
 		flex-direction: column;

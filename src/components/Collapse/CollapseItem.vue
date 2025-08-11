@@ -8,6 +8,11 @@
         <div class="ws-collapse__header" :id="`collapse-item-header-${name}`" @click="handleItemClick">
             <!-- 具名插槽1 title -->
             <slot name="title">{{ title }}</slot>
+            <div class="ws-collapse__icon">
+              <WsIcon  icon="fa-solid fa-angle-down"/>
+            </div>
+
+
         </div>
 
         <Transition name="slide"
@@ -29,6 +34,8 @@
     import type { CollapseItemProps, CollapseProviderType } from './type';
     import { CollapseProviderKey } from './type';
     import { computed, inject } from 'vue';
+
+    import WsIcon  from '@/components/Icon/Icon.vue';
 
     const CollapseProvider: CollapseProviderType | undefined =  inject(CollapseProviderKey);
 
