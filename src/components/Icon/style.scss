@@ -7,6 +7,7 @@
   fill: currentColor;
   color: var(--ws-icon-color);
   font-size: inherit;
+  vertical-align: text-top; // 添加这行使图标与文本顶部对齐
 
   &--primary{
     color: var(--ws-primary-500);
@@ -27,7 +28,4 @@
   &--info{
     color: var(--ws-info-500);
   }
-
-
-
 }

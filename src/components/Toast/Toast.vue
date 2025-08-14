@@ -1,29 +1,31 @@
 <template>
-  <div class='ws-alert'
-  :class="{
-    [`ws-alert--${type}`] : type,
-  }">
-  is: {{  isActive }}
-  <span v-if="icon"><WsIcon :icon="icon"/></span>
-  <span v-if="context">
-    {{ context }}
-  </span>
-  <span v-else>
-    <slot/>
-  </span>
-  <!-- closeIcon -->
-  <span v-if="closable" @click="closeHandler"><WsIcon icon="fa-regular fa-circle-xmark"/></span>
-  </div>
+  <Teleport to="body">
+    <div class='ws-toast'
+    :class="{
+      [`ws-toast--${type}`] : type,
+      'is-active': isActive
+    }">
+    <div class="ws-toast__icon" v-if="icon"><WsIcon :icon="icon" :type="type"/></div>
+    <span v-if="context">
+      {{ context }}
+    </span>
+    <span v-else>
+      <slot/>
+    </span>
+    <!-- closeIcon -->
+    <span class="ws-toast__close" v-if="closable" @click="closeHandler"><WsIcon icon="fa-regular fa-circle-xmark" :type="type"/></span>
+    </div>
+  </Teleport>
 </template>
 
 
 <script lang ='ts' setup>
   import {ref, watch} from 'vue';
-  import { type AlertProps, type AlertEmits  } from './type.ts';
+  import { type ToastProps, type ToastEmits  } from './type.ts';
   import WsIcon from '@/components/Icon/Icon.vue';
 
   const props = withDefaults(
-    defineProps<AlertProps>(),
+    defineProps<ToastProps>(),
     {
       closable:false
     }
@@ -32,10 +34,10 @@
 
 
   defineOptions({
-    name: 'WsAlert'
+    name: 'WsToast'
   });
 
-  const emit = defineEmits<AlertEmits>();
+  const emit = defineEmits<ToastEmits>();
 
   const closeHandler = function(){
     isActive.value = false;

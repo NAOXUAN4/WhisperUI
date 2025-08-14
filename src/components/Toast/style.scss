@@ -1,0 +1,90 @@
+.ws-toast {
+  border: var(--ws-border-width) solid var(--ws-border-color);
+  border-radius: var(--ws-border-radius-lg);
+  padding: var(--ws-border-radius-xl);
+  background-color: var(--ws-white);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ws-gray-900);
+  box-shadow: var(--ws-shadow-lg);
+
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all var(--ws-transition-duration-base) var(--ws-transition-timing-function);
+
+  // 添加 margin-bottom 使 Toast 之间有间距
+  margin-bottom: 10px;
+
+  // 设置最大宽度以便内容可以换行
+  max-width: 300px;
+
+  &.is-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &.ws-toast--primary {
+    border-color: var(--ws-primary-300);
+    background-color: var(--ws-primary-50);
+    color: var(--ws-primary-800);
+  }
+
+  &.ws-toast--success {
+    border-color: var(--ws-success-300);
+    background-color: var(--ws-success-50);
+    color: var(--ws-success-800);
+  }
+
+  &.ws-toast--warning {
+    border-color: var(--ws-warning-300);
+    background-color: var(--ws-warning-50);
+    color: var(--ws-warning-800);
+  }
+
+  &.ws-toast--error {
+    border-color: var(--ws-error-300);
+    background-color: var(--ws-error-50);
+    color: var(--ws-error-800);
+  }
+
+  &.ws-toast--info {
+    border-color: var(--ws-info-300);
+    background-color: var(--ws-info-50);
+    color: var(--ws-info-800);
+  }
+}
+
+.ws-toast__icon {
+  display: flex;
+  align-items: flex-start;
+  margin-right: var(--ws-border-radius-xl);
+  align-self: flex-start;
+  margin-top: 4px; // 微调垂直对齐
+}
+
+.ws-toast__close {
+  display: flex;
+  align-items: flex-start;
+  margin-left: var(--ws-border-radius-xl);
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 4px; // 微调垂直对齐
+}
+
+// 添加内容区域的样式以支持换行
+.ws-toast > span:nth-child(2) {
+  flex: 1;
+  align-self: flex-start;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}

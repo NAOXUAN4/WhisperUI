@@ -8,16 +8,16 @@
 		<div class="pg-container">
 
       <div style="display: flex; flex-direction: row; margin-top: 5px; gap: 4px;">
-					<WsButton>
+					<WsButton @click = "handlebtAToast">
 						default
 					</WsButton>
-          <WsButton plain>
+          <WsButton plain @click = "handlebtAToast">
 						plain
 					</WsButton>
-          <WsButton icon="fa-lemon fa-regular">
+          <WsButton icon="fa-lemon fa-regular" @click = "handlebtAToast">
 						icon button
 					</WsButton>
-          <WsButton circle>
+          <WsButton circle @click = "handlebtAToast">
 						circle
 					</WsButton>
           <WsButton round>
@@ -27,7 +27,7 @@
 
 			<div style="display: flex; flex-direction: row; margin-top: 5px;">
 				<div v-for="item in <ButtonType[]>['primary', 'error', 'warning', 'success', 'info']" style="margin: 2px;" :key="item">
-					<WsButton :type=item>
+					<WsButton :type=item @click = "handlebtAToast(item)">
 						{{ item }}
 					</WsButton>
 				</div>
@@ -143,9 +143,10 @@
     </div>
 
     <hr>
-    <h2>part.4 Alert</h2>
+    <h2>part.4 Toast</h2>
     <div class="pg-container">
-      <WsAlert context="nnnnnn" closable icon="fa-lemon" v-model="isAlertActive"/>
+      <div style="height: 100px; width: 100px;"><WsButton @click = "handlebtAToast">AwakeToast</WsButton></div>
+      <WsToast context="this is Toast" closable icon="fa-regular fa-calendar-check" :type="Toasttype" v-model="isToastActive"/>
     </div>
 
 	</div>
@@ -158,16 +159,23 @@
 	import WsCollapseItem from './components/Collapse/CollapseItem.vue';
   import WsIcon from './components/Icon/Icon.vue';
 	import type { ButtonInstance, ButtonType } from './components/Button/type';
-  import WsAlert from './components/Alert/Alert.vue';
+	import type { ToastType } from './components/Toast/type';
+
+  import WsToast from './components/Toast/Toast.vue';
 	const ButtonDom = ref<ButtonInstance>();
 	const startCollpase = reactive({list:['2']});
-  const isAlertActive = ref(false);
+  const isToastActive = ref(false);
+  const Toasttype = ref<ToastType>();
+
+  const handlebtAToast = (type: ToastType) => {
+    Toasttype.value = type;
+    isToastActive.value = true;
+  };
 
 	onMounted(()=>{
 		console.log(ButtonDom.value?.ref);
     setTimeout(()=>{
-      isAlertActive.value = true;
-    },4000);
+    },500);
 	});
 
 </script>
