@@ -142,9 +142,14 @@
       </div>
     </div>
 
+    <hr>
+    <h2>part.4 Alert</h2>
+    <div class="pg-container">
+      <WsAlert context="nnnnnn" closable icon="fa-lemon" v-model="isAlertActive"/>
+    </div>
+
 	</div>
 </template>
-
 
 <script setup lang="ts">
 	import { onMounted, reactive, ref } from 'vue';
@@ -153,14 +158,16 @@
 	import WsCollapseItem from './components/Collapse/CollapseItem.vue';
   import WsIcon from './components/Icon/Icon.vue';
 	import type { ButtonInstance, ButtonType } from './components/Button/type';
+  import WsAlert from './components/Alert/Alert.vue';
 	const ButtonDom = ref<ButtonInstance>();
 	const startCollpase = reactive({list:['2']});
+  const isAlertActive = ref(false);
 
 	onMounted(()=>{
 		console.log(ButtonDom.value?.ref);
     setTimeout(()=>{
-
-    },1000);
+      isAlertActive.value = true;
+    },4000);
 	});
 
 </script>
