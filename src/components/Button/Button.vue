@@ -25,7 +25,7 @@
 <script lang ='ts' setup>
     import { ref } from 'vue';
     import type { ButtonProps } from './type';
-    import WsIcon from '@/components/Icon/Icon.vue';
+    import WsIcon from '../Icon/Icon.vue';
 
     withDefaults(  //// 设置默认属性
         defineProps<ButtonProps>(),    /// 属性接口

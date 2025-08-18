@@ -21,6 +21,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@fortawesome/vue-fontawesome": "^3.1.1",
     "pinia": "^3.0.3",
+    "vitest": "^3.2.4",
     "vue": "^3.5.18"
   },
   "devDependencies": {
@@ -29,10 +30,12 @@
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitejs/plugin-vue-jsx": "^5.0.1",
     "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.32.0",
     "eslint-plugin-vue": "~10.3.0",
     "jiti": "^2.4.2",
+    "jsdom": "^26.1.0",
     "npm-run-all2": "^8.0.4",
     "sass-embedded": "^1.90.0",
     "typescript": "~5.8.0",
