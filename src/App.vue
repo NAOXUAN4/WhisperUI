@@ -149,6 +149,15 @@
       <WsToast context="this is Toast" closable icon="fa-regular fa-calendar-check" :type="Toasttype" v-model="isToastActive"/>
     </div>
 
+    <hr>
+    <h2>part.5 ToolTips</h2>
+    <div class="pg-container">
+      <WsToolTip content="tooltip1" trigger="click" v-model="TooltipVmodel">
+        <WsIcon icon="fas fa-lemon"/>
+      </WsToolTip>
+    </div>
+
+
 	</div>
 </template>
 
@@ -160,12 +169,15 @@
   import WsIcon from './components/Icon/Icon.vue';
 	import type { ButtonInstance, ButtonType } from './components/Button/type';
 	import type { ToastType } from './components/Toast/type';
-
   import WsToast from './components/Toast/Toast.vue';
+  import WsToolTip from "./components/ToolTip/ToolTip.vue";
+
+
 	const ButtonDom = ref<ButtonInstance>();
 	const startCollpase = reactive({list:['2']});
   const isToastActive = ref(false);
   const Toasttype = ref<ToastType>();
+  const TooltipVmodel = ref(true);
 
   const handlebtAToast = (type: ToastType) => {
     Toasttype.value = type;
@@ -175,7 +187,8 @@
 	onMounted(()=>{
 		console.log(ButtonDom.value?.ref);
     setTimeout(()=>{
-    },500);
+      TooltipVmodel.value = false;
+    },2000);
 	});
 
 </script>
