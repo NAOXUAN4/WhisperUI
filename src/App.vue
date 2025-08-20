@@ -20,7 +20,7 @@
           <WsButton circle @click = "handlebtAToast">
 						circle
 					</WsButton>
-          <WsButton round>
+          <WsButton round @click = "open">
 						round
 					</WsButton>
 			</div>
@@ -152,7 +152,7 @@
     <hr>
     <h2>part.5 ToolTips</h2>
     <div class="pg-container">
-      <WsToolTip content="tooltip1" trigger="click" v-model="TooltipVmodel">
+      <WsToolTip content="tooltip1" trigger="click" v-model="TooltipVmodel" ref="tooltipRef">
         <WsIcon icon="fas fa-lemon"/>
       </WsToolTip>
     </div>
@@ -171,13 +171,22 @@
 	import type { ToastType } from './components/Toast/type';
   import WsToast from './components/Toast/Toast.vue';
   import WsToolTip from "./components/ToolTip/ToolTip.vue";
+import type { ToolTipInstance } from './components/ToolTip/type';
 
 
 	const ButtonDom = ref<ButtonInstance>();
 	const startCollpase = reactive({list:['2']});
   const isToastActive = ref(false);
   const Toasttype = ref<ToastType>();
-  const TooltipVmodel = ref(true);
+  const TooltipVmodel = ref(false);
+  const tooltipRef = ref<ToolTipInstance | null>(null);
+  const open = () => {
+    tooltipRef.value?.show();
+  };
+
+  // const close = () => {
+  //   tooltipRef.value?.hide();
+  // };
 
   const handlebtAToast = (type: ToastType) => {
     Toasttype.value = type;

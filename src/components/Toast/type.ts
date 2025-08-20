@@ -5,7 +5,8 @@ export interface ToastProps {
   closable?: boolean,
   icon?:string,
   type?: ToastType,
-  modelValue: boolean   /// v-model 是否显示属性
+  disapper?: number
+  modelValue: boolean,   /// v-model 是否显示属性
 }
 
 

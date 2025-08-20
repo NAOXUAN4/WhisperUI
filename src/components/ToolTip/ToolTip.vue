@@ -2,10 +2,11 @@
   <div class='ws-tooltip'
     @mouseenter="props.trigger == 'hover' ? triggerHandler(false) : null"
     @mouseleave="props.trigger == 'hover' ? triggerHandler(true) : null"
+    ref="tooltiprootNode"
   >
     <div class="ws-tooltip__trigger" ref="triggerNode"
       @click="props.trigger == 'click' ? triggerHandler() : null"
-      
+
     >
       <div>
         <slot/>
@@ -24,9 +25,10 @@
 
 
 <script lang ='ts' setup>
-  import { ref,watch } from 'vue';
-  import { type ToolTipProps, type ToolTipEmits } from './type';
-  import { createPopper, type Instance } from '@popperjs/core';
+  import { onUnmounted, ref,watch, computed } from 'vue';
+  import { type ToolTipProps, type ToolTipEmits, type ToolTipInstance } from './type';
+  import { createPopper, placements, type Instance } from '@popperjs/core';
+  import useClickOutside  from '@/hooks/useClickOutside';
 
 
   const props = withDefaults(
@@ -35,33 +37,47 @@
       placement: 'bottom',
       trigger: 'hover'
     }
-
   );
 
   defineOptions({
     name:"WsTooltip"
   });
 
+  const popperOptions = computed(()=>{   /// 组合 options
+    return {
+      placements: placements,
+      ...props.popperOptions
+    };
+  });
+
   const emits = defineEmits<ToolTipEmits>();
   const isActive = ref(props.modelValue ?? false);
   let poperInstance: Instance | null = null;
 
+  const tooltiprootNode = ref<HTMLElement>();
   const poperNode = ref<HTMLElement>();
   const triggerNode = ref<HTMLElement>();
 
-  const triggerHandler = (isLeave?: boolean) => {
+  useClickOutside(tooltiprootNode, ()=>{
     if(props.trigger == 'click'){
-      isActive.value = !isActive.value;
-      console.log(props);
-
-    }else if(props.trigger == 'hover') {
-      isActive.value = isLeave ? false : true;
-
+      isActive.value=false;
     }
-    // emits('visible-change', isActive.value);
+  });
+
+  const onActiveChange = (e: boolean) =>{
+    isActive.value = e;
     emits('update:modelValue', isActive.value);
     emits('change:modelValue', isActive.value);
+  };
 
+  const triggerHandler = (isLeave?: boolean) => {
+    if(props.trigger == 'click'){
+      onActiveChange(!isActive.value);
+      console.log(props);
+    }else if(props.trigger == 'hover') {
+      onActiveChange(isLeave ? false : true);
+    }
+    // emits('visible-change', isActive.value);
 
   };
 
@@ -72,15 +88,33 @@
 
   watch(isActive,(newValue)=>{
     if (triggerNode.value && poperNode.value && newValue) {
-      poperInstance = createPopper(triggerNode.value, poperNode.value,{
-        placement: props.placement
-      });
-
+      poperInstance = createPopper(triggerNode.value, poperNode.value, popperOptions.value);
     }else{
       poperInstance?.destroy();
     }
-
   },{ flush: 'post'});
+
+  function showhandler() {
+    if(props.trigger == 'manaul') {
+      onActiveChange(true); }
+  }
+
+  function hidehandler() {
+    if(props.trigger == 'manaul') { onActiveChange(false); }
+
+  }
+
+  defineExpose<ToolTipInstance>({
+    'show': showhandler,
+    'hide': hidehandler
+  });
+
+  onUnmounted(()=>{
+    if(poperInstance){
+      poperInstance?.destroy();
+    }
+  });
+
 </script>
 
 <style scoped>

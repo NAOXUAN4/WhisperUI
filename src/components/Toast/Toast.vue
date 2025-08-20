@@ -27,7 +27,8 @@
   const props = withDefaults(
     defineProps<ToastProps>(),
     {
-      closable:false
+      closable:false,
+      disapper: 2500
     }
   );
   const isActive = ref(props.modelValue);
@@ -49,6 +50,14 @@
 
   watch(()=>props.modelValue, ()=>{
     return isActive.value  = props.modelValue;
+  });
+
+  watch(()=>isActive.value, ()=>{
+    if(isActive.value){
+      setTimeout(()=>{
+        closeHandler();
+      },props.disapper);
+    }
   });
 
 </script>

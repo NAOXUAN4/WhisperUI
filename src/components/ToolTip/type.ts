@@ -1,17 +1,16 @@
-import type { Placement } from '@popperjs/core';
-export type ToolTipTriggerType = "hover" | "click";
+import type { Placement, Options } from '@popperjs/core';
+export type ToolTipTriggerType = "hover" | "click" | "manaul";
 
 export interface ToolTipProps {
   trigger?: ToolTipTriggerType,
   content?: string,
   placement?: Placement, /// popper 方位
-  manual?: boolean,
-  modelValue?: boolean
+  modelValue?: boolean,
+  popperOptions?: Partial<Options>
 
 }
 
 export interface ToolTipEmits {
-  (e: 'visible-change', v: boolean) : void,
   (e: 'update:modelValue', v: boolean): void,
   (e: 'change:modelValue', v: boolean): void,
 
