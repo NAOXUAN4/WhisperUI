@@ -156,7 +156,7 @@
             grid-template-rows: repeat(2, 2fr);    /* 2行 */
             gap: 20px; /* 行列间距 */
             margin-bottom: 40px;">
-      <WsToolTip content="tooltip1，你好吗你好吗" trigger="hover" v-model="TooltipVmodel" ref="tooltipRef" :change-delay="0">
+      <WsToolTip content="tooltip1，你好吗你好吗" trigger="click" v-model="TooltipVmodel" ref="tooltipRef" :change-delay="0">
 		<WsButton> tool tip</WsButton>
 		<template #content>
 			hello world😭😭👈
@@ -170,14 +170,14 @@
 		</template>
       </WsToolTip>
 
-	  <WsToolTip content="tooltip1，你好吗你好吗" trigger="hover" :change-delay="0" placement="left">
+	  <WsToolTip content="tooltip1，你好吗你好吗" trigger="hover" :change-delay="0" placement="right">
 		<WsButton> tool tip</WsButton>
 		<template #content>
 			hello world😭😭👈
 		</template>
       </WsToolTip>
 
-	  <WsToolTip content="tooltip1，你好吗你好吗" trigger="hover" :change-delay="0" placement="right">
+	  <WsToolTip content="tooltip1，你好吗你好吗" trigger="hover" :change-delay="0" placement="left">
 		<WsButton> tool tip</WsButton>
 		<template #content>
 			hello world😭😭👈

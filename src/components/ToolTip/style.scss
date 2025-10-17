@@ -1,5 +1,5 @@
 .ws-tooltip {
-  display: inline-block; // 让组件容器自适应内容
+  display: inline-block;
   
   &.fade-enter-active,
   &.fade-leave-active {
@@ -12,7 +12,7 @@
   }
 
   .ws-tooltip__trigger {
-    display: inline-block; // 确保 trigger 区域正确
+    display: inline-block;
   }
 
   .ws-tooltip__popper {
@@ -24,74 +24,84 @@
     font-size: 14px;
     line-height: 1.4;
     color: var(--ws-gray-800);
-    min-width: 40px;       // 最小宽度
-    max-width: 200px;      // 最大宽度
+    min-width: 40px;
+    max-width: 200px;
     word-wrap: break-word;
     z-index: 1000;
     
-    // 自动适应 trigger 宽度的选项（可通过 prop 控制）
     &.auto-width {
       min-width: auto;
       width: max-content;
       white-space: nowrap;
     }
 
-    #arrow,
-    #arrow::before {
+    #arrow {
       position: absolute;
       width: 8px;
       height: 8px;
-      background-color: var(--ws-white);
-      box-sizing: border-box;
+      z-index: -1;
+      
+      &::before {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background-color: var(--ws-white);
+        content: "";
+        transform: rotate(45deg);
+        /* 移除箭头的单独阴影，让 tooltip 主体的阴影覆盖箭头 */
+        box-shadow: none;
+      }
     }
 
-    #arrow {
-      visibility: hidden;
-    }
-
+    /* 为所有方向统一设置边框 */
     #arrow::before {
-      visibility: visible;
-      content: "";
-      transform: rotate(45deg);
-      box-shadow: var(--ws-shadow-base);
+      border: 1px solid var(--ws-border-color);
     }
 
-    // 不同方向的箭头边框样式
+    /* 根据方向隐藏不需要的边框 */
     &[data-popper-placement^="top"] #arrow::before {
-      border-top: 1px solid var(--ws-border-color);
-      border-left: 1px solid var(--ws-border-color);
+      border-top: none;
+      border-left: none;
     }
 
     &[data-popper-placement^="bottom"] #arrow::before {
-      border-bottom: 1px solid var(--ws-border-color);
-      border-right: 1px solid var(--ws-border-color);
+      border-bottom: none;
+      border-right: none;
     }
 
     &[data-popper-placement^="left"] #arrow::before {
-      border-left: 1px solid var(--ws-border-color);
-      border-bottom: 1px solid var(--ws-border-color);
+      border-left: none;
+      border-bottom: none;
     }
 
     &[data-popper-placement^="right"] #arrow::before {
-      border-top: 1px solid var(--ws-border-color);
-      border-right: 1px solid var(--ws-border-color);
+      border-top: none;
+      border-right: none;
     }
 
     // 箭头位置调整
     &[data-popper-placement^="top"] #arrow {
       bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     &[data-popper-placement^="bottom"] #arrow {
       top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     &[data-popper-placement^="left"] #arrow {
       right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     &[data-popper-placement^="right"] #arrow {
       left: -4px;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 }

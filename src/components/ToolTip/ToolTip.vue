@@ -38,7 +38,7 @@
 <script lang ='ts' setup>
   import { onUnmounted, ref,watch, computed } from 'vue';
   import { type ToolTipProps, type ToolTipEmits, type ToolTipInstance } from './type';
-  import { createPopper, offset, placements, type Instance } from '@popperjs/core';
+  import { createPopper, type Instance } from '@popperjs/core';
   import useClickOutside  from '@/hooks/useClickOutside';
   import { debounce } from 'lodash-es'
 
@@ -62,7 +62,7 @@
 
   const popperOptions = computed(() => {
   return {
-    placements: placements,
+    placement: props.placement,
     modifiers: [
       {
         name: 'offset',
@@ -176,7 +176,7 @@
       ]
     };
     
-    poperInstance = createPopper(triggerNode.value, poperNode.value, updatedOptions);
+    poperInstance = createPopper(triggerNode.value, poperNode.value, popperOptions.value);
     } else {
       poperInstance?.destroy();
     }
