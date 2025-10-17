@@ -13,13 +13,17 @@
       </div>
     </div>
 
-    <div class="ws-tooltip__popper" ref="poperNode" v-if="isActive">
-      <div>
-        <slot name="content">
-          {{ content }}
-        </slot>
+    <!-- 动画包裹 -->
+    <Transition :name="transition">
+      <div class="ws-tooltip__popper" ref="poperNode" v-show="isActive">
+        <div>
+          <slot name="content">
+            {{ content }}
+          </slot>
+        </div>
       </div>
-    </div>
+    </Transition>
+
   </div>
 </template>
 
@@ -35,7 +39,9 @@
     defineProps<ToolTipProps>(),
     {
       placement: 'bottom',
-      trigger: 'hover'
+      trigger: 'hover',
+      transition: 'fade',
+      changeDelay: 0
     }
   );
 
@@ -58,18 +64,33 @@
   const poperNode = ref<HTMLElement>();
   const triggerNode = ref<HTMLElement>();
 
+
+  /**
+   * 点击trigger 外部关闭逻辑
+   */
   useClickOutside(tooltiprootNode, ()=>{
     if(props.trigger == 'click'){
-      isActive.value=false;
+      onActiveChange(false);
     }
   });
 
+  /**
+   * 显示隐藏统一接口， 操作 内部 isActive 变量值 以及 emit v-model的值
+   * 集成延时功能
+   * @param e
+   */
   const onActiveChange = (e: boolean) =>{
-    isActive.value = e;
-    emits('update:modelValue', isActive.value);
-    emits('change:modelValue', isActive.value);
+    setTimeout(()=>{
+      isActive.value = e;
+      emits('update:modelValue', isActive.value);
+      emits('change:modelValue', isActive.value);
+    }, props.changeDelay);
   };
 
+  /**
+   * 触发操作的统一Api 接口，适配多种触发方式
+   * @param isLeave
+   */
   const triggerHandler = (isLeave?: boolean) => {
     if(props.trigger == 'click'){
       onActiveChange(!isActive.value);
@@ -81,7 +102,7 @@
 
   };
 
-  // v - model
+  // v - model， 对上级变化的监听，监听props改变，同步本地变量
   watch(()=>props.modelValue, (newValue)=>{
     isActive.value = newValue;
   });
@@ -94,14 +115,23 @@
     }
   },{ flush: 'post'});
 
+
+  /**
+   * 显示函数接口，暴露v-model 的Api
+   */
   function showhandler() {
     if(props.trigger == 'manaul') {
-      onActiveChange(true); }
+        onActiveChange(true);
+    }
   }
 
+  /**
+   * 隐藏函数接口，暴露v-model 的Api
+   */
   function hidehandler() {
-    if(props.trigger == 'manaul') { onActiveChange(false); }
-
+    if(props.trigger == 'manaul') {
+        onActiveChange(false);
+    }
   }
 
   defineExpose<ToolTipInstance>({
@@ -118,4 +148,6 @@
 </script>
 
 <style scoped>
+@import './style.scss';
+
 </style>

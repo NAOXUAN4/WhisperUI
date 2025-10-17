@@ -6,7 +6,9 @@ export interface ToolTipProps {
   content?: string,
   placement?: Placement, /// popper 方位
   modelValue?: boolean,
-  popperOptions?: Partial<Options>
+  popperOptions?: Partial<Options>,
+  transition?: string,
+  changeDelay?: number /// 变化延时
 
 }
 

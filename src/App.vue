@@ -152,7 +152,7 @@
     <hr>
     <h2>part.5 ToolTips</h2>
     <div class="pg-container">
-      <WsToolTip content="tooltip1" trigger="click" v-model="TooltipVmodel" ref="tooltipRef">
+      <WsToolTip content="tooltip1" trigger="hover" v-model="TooltipVmodel" ref="tooltipRef" :change-delay="500">
         <WsIcon icon="fas fa-lemon"/>
       </WsToolTip>
     </div>
@@ -201,7 +201,6 @@ import type { ToolTipInstance } from './components/ToolTip/type';
 	});
 
 </script>
-
 
 <style scoped>
 	.playground{
