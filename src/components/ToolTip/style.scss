@@ -1,15 +1,97 @@
 .ws-tooltip {
+  display: inline-block; // 让组件容器自适应内容
+  
+  &.fade-enter-active,
+  &.fade-leave-active {
+    transition: opacity var(--ws-transition-duration-base) var(--ws-transition-timing-function);
+  }
 
-    .fade-enter-active,
-    .fade-leave-active {
-      transition: opacity var(--ws-transition-duration-base);
+  &.fade-enter-from,
+  &.fade-leave-to {
+    opacity: 0;
+  }
+
+  .ws-tooltip__trigger {
+    display: inline-block; // 确保 trigger 区域正确
+  }
+
+  .ws-tooltip__popper {
+    position: relative;
+    background-color: var(--ws-white);
+    border-radius: var(--ws-border-radius-lg);
+    box-shadow: var(--ws-shadow-lg);
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--ws-gray-800);
+    min-width: 40px;       // 最小宽度
+    max-width: 200px;      // 最大宽度
+    word-wrap: break-word;
+    z-index: 1000;
+    
+    // 自动适应 trigger 宽度的选项（可通过 prop 控制）
+    &.auto-width {
+      min-width: auto;
+      width: max-content;
+      white-space: nowrap;
     }
 
-    .fade-enter-from,
-    .fade-leave-to {
-      opacity :0;
+    #arrow,
+    #arrow::before {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: var(--ws-white);
+      box-sizing: border-box;
     }
 
+    #arrow {
+      visibility: hidden;
+    }
+
+    #arrow::before {
+      visibility: visible;
+      content: "";
+      transform: rotate(45deg);
+      box-shadow: var(--ws-shadow-base);
+    }
+
+    // 不同方向的箭头边框样式
+    &[data-popper-placement^="top"] #arrow::before {
+      border-top: 1px solid var(--ws-border-color);
+      border-left: 1px solid var(--ws-border-color);
+    }
+
+    &[data-popper-placement^="bottom"] #arrow::before {
+      border-bottom: 1px solid var(--ws-border-color);
+      border-right: 1px solid var(--ws-border-color);
+    }
+
+    &[data-popper-placement^="left"] #arrow::before {
+      border-left: 1px solid var(--ws-border-color);
+      border-bottom: 1px solid var(--ws-border-color);
+    }
+
+    &[data-popper-placement^="right"] #arrow::before {
+      border-top: 1px solid var(--ws-border-color);
+      border-right: 1px solid var(--ws-border-color);
+    }
+
+    // 箭头位置调整
+    &[data-popper-placement^="top"] #arrow {
+      bottom: -4px;
+    }
+
+    &[data-popper-placement^="bottom"] #arrow {
+      top: -4px;
+    }
+
+    &[data-popper-placement^="left"] #arrow {
+      right: -4px;
+    }
+
+    &[data-popper-placement^="right"] #arrow {
+      left: -4px;
+    }
+  }
 }
-
-

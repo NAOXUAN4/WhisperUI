@@ -10,6 +10,10 @@ export interface ToolTipProps {
   transition?: string,
   changeDelay?: number /// 变化延时
 
+  minWidth?: number;
+  maxWidth?: number;
+  autoWidth?: boolean;
+
 }
 
 export interface ToolTipEmits {
