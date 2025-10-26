@@ -14,11 +14,11 @@
     </div>
 
     <!-- 动画包裹 -->
-    
+
       <div class="ws-tooltip__popper" ref="poperNode" v-show="isActive">
         <Transition :name="transition">
-          <div>
-            
+          <div v-show="isActive">
+
             <div>
               <slot name="content">
                 {{ content }}
@@ -29,7 +29,7 @@
           </div>
         </Transition>
       </div>
-    
+
 
   </div>
 </template>
@@ -40,7 +40,7 @@
   import { type ToolTipProps, type ToolTipEmits, type ToolTipInstance } from './type';
   import { createPopper, type Instance } from '@popperjs/core';
   import useClickOutside  from '@/hooks/useClickOutside';
-  import { debounce } from 'lodash-es'
+  import { debounce } from 'lodash-es';
 
 
   const props = withDefaults(
@@ -113,7 +113,7 @@
 
   /**
    * 显示隐藏统一接口， 操作 内部 isActive 变量值 以及 emit v-model的值
-   * 
+   *
    * @param e
    */
   const onActiveChange = (e: boolean) =>{
@@ -125,7 +125,7 @@
 
   /**
    * debounce 封装延时
-   * 
+   *
    */
   const onActiveChangeDebounce = debounce((e: boolean) => onActiveChange(e), props.changeDelay);
 
@@ -175,7 +175,7 @@
         }
       ]
     };
-    
+
     poperInstance = createPopper(triggerNode.value, poperNode.value, popperOptions.value);
     } else {
       poperInstance?.destroy();

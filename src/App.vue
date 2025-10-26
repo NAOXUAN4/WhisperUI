@@ -186,11 +186,35 @@
     </div>
 
 
+    <hr>
+    <h2>part.6 DropDown</h2>
+    <div class="pg-container">
+      <WsToast :context="`this is ${DropDownSelected}`" closable icon="fa-regular fa-calendar-check" :type="Toasttype" v-model="isToastActivedp"/>
+      <WsDropDown ref = "dropdownRef" :DropDownMenuOptions = "[
+        {
+          label: 'select-1',
+          key: 11,
+        },
+        {
+          label: 'select-2',
+          key: 22,
+          divided: true,
+          disabled: true
+        },
+        {
+          label: h('span','select-3'),
+          key: 33,
+        }
+      ]" v-model:select="DropDownSelected" trigger="hover">
+        <WsButton>Dropdown</WsButton>
+      </WsDropDown>
+    </div>
+
 	</div>
 </template>
 
 <script setup lang="ts">
-	import { onMounted, reactive, ref } from 'vue';
+	import { onMounted, reactive, ref,  h } from 'vue';
 	import WsButton from './components/Button/Button.vue';
 	import WsCollapse from './components/Collapse/Collapse.vue';
 	import WsCollapseItem from './components/Collapse/CollapseItem.vue';
@@ -199,7 +223,11 @@
 	import type { ToastType } from './components/Toast/type';
   import WsToast from './components/Toast/Toast.vue';
   import WsToolTip from "./components/ToolTip/ToolTip.vue";
-import type { ToolTipInstance } from './components/ToolTip/type';
+  import type { ToolTipInstance } from './components/ToolTip/type';
+  import WsDropDown from './components/DropDown/DropDown.vue';
+  import type { DropDownInstance, DropDownOptionsKey } from './components/DropDown/type';
+  import { watch } from 'vue';
+
 
 
 	const ButtonDom = ref<ButtonInstance>();
@@ -208,6 +236,17 @@ import type { ToolTipInstance } from './components/ToolTip/type';
   const Toasttype = ref<ToastType>();
   const TooltipVmodel = ref(false);
   const tooltipRef = ref<ToolTipInstance | null>(null);
+
+  const DropDownSelected = ref<DropDownOptionsKey | null>(null);
+  const isToastActivedp = ref(false);
+
+  watch(DropDownSelected, ()=> {
+    console.log(DropDownSelected.value);
+    isToastActivedp.value = true;
+  });
+
+  const dropdownRef = ref<DropDownInstance | null>(null);
+
   const open = () => {
     tooltipRef.value?.show();
   };

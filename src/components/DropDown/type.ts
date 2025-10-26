@@ -1,9 +1,9 @@
 import type { VNode } from "vue";
 import type { ToolTipProps } from "../ToolTip/type";
 
-type DropDownOptionsKey = string | number;
+export type DropDownOptionsKey = string | number;
 
-interface MenuOptions  {
+export interface MenuOptions  {
   label: string | VNode,
   key: DropDownOptionsKey,
   disabled?: boolean,
@@ -17,7 +17,7 @@ export interface DropDownProps extends ToolTipProps {
 
 export interface DropDownEmits {
   (e: 'visiable-change', value: boolean ): void,
-  (e: 'select', value: DropDownOptionsKey) : void
+  (e: 'update:select', value: DropDownOptionsKey) : void
 }
 
 

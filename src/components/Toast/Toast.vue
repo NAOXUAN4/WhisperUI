@@ -13,7 +13,7 @@
       <slot/>
     </span>
     <!-- closeIcon -->
-    <span class="ws-toast__close" v-if="closable" @click="closeHandler"><WsIcon icon="fa-regular fa-circle-xmark" :type="type"/></span>
+    <span class="ws-toast__close" v-if="closable" @click="closeHandler"><WsIcon icon="fa-solid fa-xmark" :type="type"/></span>
     </div>
   </Teleport>
 </template>
