@@ -1,0 +1,104 @@
+.ws-message {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border-radius: var(--ws-border-radius-lg);
+  box-shadow: var(--ws-shadow-lg);
+  min-width: 300px;
+  max-width: 500px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  background-color: var(--ws-white);
+  border: var(--ws-border-width) solid var(--ws-border-color);
+  box-sizing: border-box;
+
+  transition: top var(--ws-transition-duration-base) var(--ws-transition-timing-function),
+              opacity var(--ws-transition-duration-base) var(--ws-transition-timing-function),
+              transform var(--ws-transition-duration-base) var(--ws-transition-timing-function);
+
+  .ws-message__content {
+    flex: 1;
+    padding-right: 0.5rem;
+    word-break: break-all;
+  }
+
+  .ws-message__close {
+    cursor: pointer;
+    color: var(--ws-gray-400);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: var(--ws-gray-700);
+    }
+  }
+
+  // 不同类型的消息样式
+  &--info {
+    background-color: var(--ws-info-50);
+    border-color: var(--ws-info-300);
+    color: var(--ws-info-800);
+
+    .ws-message__close {
+      color: var(--ws-info-700);
+
+      &:hover {
+        color: var(--ws-info-900);
+      }
+    }
+  }
+
+  &--success {
+    background-color: var(--ws-success-50);
+    border-color: var(--ws-success-300);
+    color: var(--ws-success-800);
+
+    .ws-message__close {
+      color: var(--ws-success-700);
+
+      &:hover {
+        color: var(--ws-success-900);
+      }
+    }
+  }
+
+  &--warning {
+    background-color: var(--ws-warning-50);
+    border-color: var(--ws-warning-300);
+    color: var(--ws-warning-800);
+
+    .ws-message__close {
+      color: var(--ws-warning-700);
+
+      &:hover {
+        color: var(--ws-warning-900);
+      }
+    }
+  }
+
+  &--error {
+    background-color: var(--ws-error-50);
+    border-color: var(--ws-error-300);
+    color: var(--ws-error-800);
+
+    .ws-message__close {
+      color: var(--ws-error-700);
+
+      &:hover {
+        color: var(--ws-error-900);
+      }
+    }
+  }
+}
+
+.ws-message.fade-up-enter-from,
+.ws-message.fade-up-leave-to {
+  opacity: 0;
+  transform: translateY(-100%) translateX(-50%);
+}

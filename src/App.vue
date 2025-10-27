@@ -151,7 +151,7 @@
 
     <hr>
     <h2>part.5 ToolTips</h2>
-    <div class="pg-container"  style="display: grid;
+    <div class="pg-container"  style="display: grid; width: 500px;
             grid-template-columns: repeat(2, 2fr); /* 3列 */
             grid-template-rows: repeat(2, 2fr);    /* 2行 */
             gap: 20px; /* 行列间距 */
@@ -210,6 +210,24 @@
       </WsDropDown>
     </div>
 
+    <hr>
+    <h2>part.7 Message</h2>
+    <div class="pg-container" style="display: grid; gap: 20px;  width: 30px;">
+      <!-- <WsMessage :show-close="true" message="nihaoma"></WsMessage> -->
+      <WsButton type="info" @click = "() => {
+        createMessage({message: 'info 🤫', showClose: true, duration: 5000});
+        }">info</WsButton>
+      <WsButton type="success" @click = "() => {
+        createMessage({message: 'success 🐔', showClose: true, duration: 5000 ,type: 'success'});
+        }">success</WsButton>
+      <WsButton type="error" @click = "() => {
+        createMessage({message: 'error 🐕', showClose: true, duration: 5000, type: 'error'});
+        }">error</WsButton>
+      <WsButton type="warning" @click = "() => {
+        createMessage({message: 'warning 😽', showClose: true, duration: 5000, type: 'warning'});
+        }">warning</WsButton>
+    </div>
+
 	</div>
 </template>
 
@@ -228,9 +246,12 @@
   import type { DropDownInstance, DropDownOptionsKey } from './components/DropDown/type';
   import { watch } from 'vue';
 
+  // import WsMessage from "./components/Message/message.vue";
+  import { createMessage, getLastMessageNodeInstance } from './components/Message/method';
 
 
-	const ButtonDom = ref<ButtonInstance>();
+
+	// const ButtonDom = ref<ButtonInstance>();
 	const startCollpase = reactive({list:['2']});
   const isToastActive = ref(false);
   const Toasttype = ref<ToastType>();
@@ -241,7 +262,7 @@
   const isToastActivedp = ref(false);
 
   watch(DropDownSelected, ()=> {
-    console.log(DropDownSelected.value);
+    // console.log(DropDownSelected.value);
     isToastActivedp.value = true;
   });
 
@@ -261,7 +282,7 @@
   };
 
 	onMounted(()=>{
-		console.log(ButtonDom.value?.ref);
+		// console.log(ButtonDom.value?.ref);
     setTimeout(()=>{
       TooltipVmodel.value = false;
     },2000);
@@ -279,7 +300,7 @@
 
 		h2,h3 {
 			color: rgb(0, 0, 0);
-      		font-family: 'Times New Roman', Times, serif;
+      font-family: 'Times New Roman', Times, serif;
 		}
 
 		.pg-container{
