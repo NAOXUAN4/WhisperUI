@@ -14,6 +14,7 @@
         :disabled="disabled"
         :autofocus="autofocus"
         :type="nativetype"
+        @click="handleClick"
     >
         <span v-if="icon">
           <WsIcon :icon="icon" />
@@ -27,12 +28,16 @@
     import type { ButtonProps } from './type';
     import WsIcon from '../Icon/Icon.vue';
 
-    withDefaults(  //// 设置默认属性
+    const props = withDefaults(  //// 设置默认属性
         defineProps<ButtonProps>(),    /// 属性接口
         {
             nativetype: 'button',
         }
     );
+
+    const emit = defineEmits<{
+      click: [event: MouseEvent]
+    }>();
 
     // @vue 3.3
     defineOptions({
@@ -44,9 +49,13 @@
     defineExpose({
         ref: _ref
     });
+
+    const handleClick = (event: MouseEvent) => {
+      emit('click', event);
+    };
 </script>
 
 
 <style scoped>
-    /* @import './style.scss'; */
+    @import './style.scss';
 </style>

@@ -162,14 +162,16 @@
           phase: 'beforeWrite',
           requires: ['computeStyles'],
           fn: ({ state }) => {
+            // 为state添加类型断言
+            const popperState = state as any;
             if (props.minWidth) {
-              state.styles.popper.minWidth = `${props.minWidth}px`;
+              popperState.styles.popper.minWidth = `${props.minWidth}px`;
             }
             if (props.maxWidth) {
-              state.styles.popper.maxWidth = `${props.maxWidth}px`;
+              popperState.styles.popper.maxWidth = `${props.maxWidth}px`;
             }
             if (props.autoWidth && triggerNode.value) {
-              state.styles.popper.width = `${triggerNode.value.offsetWidth}px`;
+              popperState.styles.popper.width = `${triggerNode.value.offsetWidth}px`;
             }
           }
         }

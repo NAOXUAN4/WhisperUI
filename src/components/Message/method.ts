@@ -1,6 +1,6 @@
 import { render, h, type Ref, ref } from "vue";
 import type { createMessageProps, MessageProps, MessageInstanceType } from "./type";
-import MessageConstructor from "./message.vue"; //// setup 默认自动导出
+import MessageConstructor from "./Message.vue"; //// setup 默认自动导出
 
 
 const messageNodeInstanceList: Ref<MessageInstanceType[]> = ref([]);

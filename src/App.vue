@@ -276,8 +276,14 @@
   //   tooltipRef.value?.hide();
   // };
 
-  const handlebtAToast = (type: ToastType) => {
-    Toasttype.value = type;
+  const handlebtAToast = (type: any) => {
+    // 如果type是ToastType类型，直接使用
+    if (type === 'primary' || type === 'error' || type === 'warning' || type === 'success' || type === 'info') {
+      Toasttype.value = type;
+    } else {
+      // 如果是MouseEvent对象，使用默认类型
+      Toasttype.value = 'info';
+    }
     isToastActive.value = true;
   };
 

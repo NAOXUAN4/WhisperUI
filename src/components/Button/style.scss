@@ -1,293 +1,280 @@
-  .ws-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 1;
-    white-space: nowrap;
-    cursor: pointer;
-    user-select: none;
-    border: none;
-    border-radius: var(--ws-border-radius-md);
-    transition: all var(--ws-transition-duration-base) var(--ws-transition-timing-function);
-    font-size: 0.875rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    background-color: var(--ws-white);
-    color: var(--ws-gray-900);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
-
-    &:hover {
-        background-color: var(--ws-gray-50);
-    }
-
-    &:active {
-        background-color: var(--ws-gray-100);
-    }
-
-    &:focus {
-        outline: 2px solid var(--ws-primary-300);
-        outline-offset: 2px;
-    }
-
-    &.is-disabled {
-        cursor: var(--ws-disabled-cursor);
-        opacity: var(--ws-disabled-opacity);
-        box-shadow: none;
-
-        &:hover,
-        &:active {
-            background-color: var(--ws-white);
-        }
-    }
-
-    &.is-plain {
-            background-color: transparent;
-            color: var(--ws-white);
-            box-shadow: none;
-
-            &:hover {
-                background-color: var(--ws-gray-900);
-            }
-
-            &:active {
-                background-color: var(--ws-gray-800);
-            }
-        }
-
-    // 不同类型按钮样式
-    &--primary {
-        background-color: var(--ws-primary-500);
-        color: var(--ws-white);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            background-color: var(--ws-primary-300);
-        }
-
-        &:active {
-            background-color: var(--ws-primary-600);
-        }
-
-        &:focus {
-            outline: 2px solid var(--ws-primary-300);
-            outline-offset: 2px;
-        }
-
-        &.is-plain {
-            background-color: transparent;
-            color: var(--ws-primary-500);
-            box-shadow: none;
-
-            &:hover {
-                background-color: var(--ws-primary-50);
-            }
-
-            &:active {
-                background-color: var(--ws-primary-100);
-            }
-        }
-
-        &.is-disabled {
-            &.is-plain {
-                background-color: transparent;
-                color: var(--ws-primary-300);
-            }
-        }
-    }
-
-    &--success {
-        background-color: var(--ws-success-500);
-        color: var(--ws-white);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            background-color: var(--ws-success-300);
-        }
-
-        &:active {
-            background-color: var(--ws-success-600);
-        }
-
-        &:focus {
-            outline: 2px solid var(--ws-success-300);
-            outline-offset: 2px;
-        }
-
-        &.is-plain {
-            background-color: transparent;
-            color: var(--ws-success-500);
-            box-shadow: none;
-
-            &:hover {
-                background-color: var(--ws-success-50);
-            }
-
-            &:active {
-                background-color: var(--ws-success-100);
-            }
-        }
-
-        &.is-disabled {
-            &.is-plain {
-                background-color: transparent;
-                color: var(--ws-success-300);
-            }
-        }
-    }
-
-    &--warning {
-        background-color: var(--ws-warning-500);
-        color: var(--ws-white);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            background-color: var(--ws-warning-300);
-        }
-
-        &:active {
-            background-color: var(--ws-warning-600);
-        }
-
-        &:focus {
-            outline: 2px solid var(--ws-warning-300);
-            outline-offset: 2px;
-        }
-
-        &.is-plain {
-            background-color: transparent;
-            color: var(--ws-warning-500);
-            box-shadow: none;
-
-            &:hover {
-                background-color: var(--ws-warning-50);
-            }
-
-            &:active {
-                background-color: var(--ws-warning-100);
-            }
-        }
-
-        &.is-disabled {
-            &.is-plain {
-                background-color: transparent;
-                color: var(--ws-warning-300);
-            }
-        }
-    }
-
-    &--error {
-        background-color: var(--ws-error-500);
-        color: var(--ws-white);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            background-color: var(--ws-error-300);
-        }
-
-        &:active {
-            background-color: var(--ws-error-600);
-        }
-
-        &:focus {
-            outline: 2px solid var(--ws-error-300);
-            outline-offset: 2px;
-        }
-
-        &.is-plain {
-            background-color: transparent;
-            color: var(--ws-error-500);
-            box-shadow: none;
-
-            &:hover {
-                background-color: var(--ws-error-50);
-            }
-
-            &:active {
-                background-color: var(--ws-error-100);
-            }
-        }
-
-        &.is-disabled {
-            &.is-plain {
-                background-color: transparent;
-                color: var(--ws-error-300);
-            }
-        }
-    }
-
-    &--info {
-        background-color: var(--ws-info-500);
-        color: var(--ws-white);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            background-color: var(--ws-info-300);
-        }
-
-        &:active {
-            background-color: var(--ws-info-600);
-        }
-
-        &:focus {
-            outline: 2px solid var(--ws-info-300);
-            outline-offset: 2px;
-        }
-
-        &.is-plain {
-            background-color: transparent;
-            color: var(--ws-info-500);
-            box-shadow: none;
-
-            &:hover {
-                background-color: var(--ws-info-50);
-            }
-
-            &:active {
-                background-color: var(--ws-info-100);
-            }
-        }
-
-        &.is-disabled {
-            &.is-plain {
-                background-color: transparent;
-                color: var(--ws-info-300);
-            }
-        }
-    }
-
-    // 不同尺寸按钮样式
-    &--small {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.75rem;
-    }
-
-    &--large {
-        font-size: 1rem;
-        padding: 0.75rem 1.5rem;
-    }
-
-    // 特殊样式
-    &.is-round {
-        border-radius: var(--ws-border-radius-full);
-    }
-
-    &.is-circle {
-        border-radius: 50%;
-        width: 2.5rem;
-        height: 2.5rem;
-        padding: 0;
-    }
-
-    // 禁用状态
-    &.is-disabled {
-        cursor: var(--ws-disabled-cursor);
-        opacity: var(--ws-disabled-opacity);
-        box-shadow: none;
-
-        &:hover,
-        &:active {
-            background-color: var(--ws-white);
-        }
-    }
+// 基础样式
+.ws-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  border-radius: var(--ws-border-radius-md);
+  transition: all var(--ws-transition-duration-base) var(--ws-transition-timing-function);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  background-color: var(--ws-white);
+  color: var(--ws-gray-900);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
+
+// 状态样式
+.ws-button:hover {
+  background-color: var(--ws-gray-50);
+}
+
+.ws-button:active {
+  background-color: var(--ws-gray-100);
+}
+
+.ws-button:focus {
+  outline: 2px solid var(--ws-primary-300);
+  outline-offset: 2px;
+}
+
+// 禁用状态
+.ws-button.is-disabled {
+  cursor: var(--ws-disabled-cursor);
+  opacity: var(--ws-disabled-opacity);
+  box-shadow: none;
+}
+
+.ws-button.is-disabled:hover,
+.ws-button.is-disabled:active {
+  background-color: var(--ws-white);
+}
+
+// Plain样式
+.ws-button.is-plain {
+  background-color: transparent;
+  color: var(--ws-white);
+  box-shadow: none;
+}
+
+.ws-button.is-plain:hover {
+  background-color: var(--ws-gray-900);
+}
+
+.ws-button.is-plain:active {
+  background-color: var(--ws-gray-800);
+}
+
+// Primary类型
+.ws-button--primary {
+  background-color: var(--ws-primary-500);
+  color: var(--ws-white);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ws-button--primary:hover {
+  background-color: var(--ws-primary-300);
+}
+
+.ws-button--primary:active {
+  background-color: var(--ws-primary-600);
+}
+
+.ws-button--primary:focus {
+  outline: 2px solid var(--ws-primary-300);
+  outline-offset: 2px;
+}
+
+.ws-button--primary.is-plain {
+  background-color: transparent;
+  color: var(--ws-primary-500);
+  box-shadow: none;
+}
+
+.ws-button--primary.is-plain:hover {
+  background-color: var(--ws-primary-50);
+}
+
+.ws-button--primary.is-plain:active {
+  background-color: var(--ws-primary-100);
+}
+
+.ws-button--primary.is-disabled.is-plain {
+  background-color: transparent;
+  color: var(--ws-primary-300);
+}
+
+// Success类型
+.ws-button--success {
+  background-color: var(--ws-success-500);
+  color: var(--ws-white);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ws-button--success:hover {
+  background-color: var(--ws-success-300);
+}
+
+.ws-button--success:active {
+  background-color: var(--ws-success-600);
+}
+
+.ws-button--success:focus {
+  outline: 2px solid var(--ws-success-300);
+  outline-offset: 2px;
+}
+
+.ws-button--success.is-plain {
+  background-color: transparent;
+  color: var(--ws-success-500);
+  box-shadow: none;
+}
+
+.ws-button--success.is-plain:hover {
+  background-color: var(--ws-success-50);
+}
+
+.ws-button--success.is-plain:active {
+  background-color: var(--ws-success-100);
+}
+
+.ws-button--success.is-disabled.is-plain {
+  background-color: transparent;
+  color: var(--ws-success-300);
+}
+
+// Warning类型
+.ws-button--warning {
+  background-color: var(--ws-warning-500);
+  color: var(--ws-white);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ws-button--warning:hover {
+  background-color: var(--ws-warning-300);
+}
+
+.ws-button--warning:active {
+  background-color: var(--ws-warning-600);
+}
+
+.ws-button--warning:focus {
+  outline: 2px solid var(--ws-warning-300);
+  outline-offset: 2px;
+}
+
+.ws-button--warning.is-plain {
+  background-color: transparent;
+  color: var(--ws-warning-500);
+  box-shadow: none;
+}
+
+.ws-button--warning.is-plain:hover {
+  background-color: var(--ws-warning-50);
+}
+
+.ws-button--warning.is-plain:active {
+  background-color: var(--ws-warning-100);
+}
+
+.ws-button--warning.is-disabled.is-plain {
+  background-color: transparent;
+  color: var(--ws-warning-300);
+}
+
+// Error类型
+.ws-button--error {
+  background-color: var(--ws-error-500);
+  color: var(--ws-white);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ws-button--error:hover {
+  background-color: var(--ws-error-300);
+}
+
+.ws-button--error:active {
+  background-color: var(--ws-error-600);
+}
+
+.ws-button--error:focus {
+  outline: 2px solid var(--ws-error-300);
+  outline-offset: 2px;
+}
+
+.ws-button--error.is-plain {
+  background-color: transparent;
+  color: var(--ws-error-500);
+  box-shadow: none;
+}
+
+.ws-button--error.is-plain:hover {
+  background-color: var(--ws-error-50);
+}
+
+.ws-button--error.is-plain:active {
+  background-color: var(--ws-error-100);
+}
+
+.ws-button--error.is-disabled.is-plain {
+  background-color: transparent;
+  color: var(--ws-error-300);
+}
+
+// Info类型
+.ws-button--info {
+  background-color: var(--ws-info-500);
+  color: var(--ws-white);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ws-button--info:hover {
+  background-color: var(--ws-info-300);
+}
+
+.ws-button--info:active {
+  background-color: var(--ws-info-600);
+}
+
+.ws-button--info:focus {
+  outline: 2px solid var(--ws-info-300);
+  outline-offset: 2px;
+}
+
+.ws-button--info.is-plain {
+  background-color: transparent;
+  color: var(--ws-info-500);
+  box-shadow: none;
+}
+
+.ws-button--info.is-plain:hover {
+  background-color: var(--ws-info-50);
+}
+
+.ws-button--info.is-plain:active {
+  background-color: var(--ws-info-100);
+}
+
+.ws-button--info.is-disabled.is-plain {
+  background-color: transparent;
+  color: var(--ws-info-300);
+}
+
+// 尺寸样式
+.ws-button--small {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+}
+
+.ws-button--large {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+// 特殊样式
+.ws-button.is-round {
+  border-radius: var(--ws-border-radius-full);
+}
+
+.ws-button.is-circle {
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
